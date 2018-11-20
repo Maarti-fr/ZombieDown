@@ -1,0 +1,23 @@
+But :
+
+un personnage qui shoot des zombie avec des amelioration d'armes et de la maison auquel il est avec des pieges quon achete voir extention de sa maison.
+
+maps : 
+
+dans une maison en modes apocaliptique 
+
+amelioration possible : 
+
+version pc dans un permier temps a voir pour une extention tel
+pourquoi pas un multijoueurs a l'avenir
+
+Bugs :
+
+
+tache:
+Map lvl 1 : X
+deplacement perso : X
+Tir : 
+
+image (sprites):
+heros : X
