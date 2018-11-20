@@ -1,5 +1,5 @@
 local Game = {}
-musiqueJeu = love.audio.newSource("sons/Projet Jeux Mixer.mp3","stream")
+musiqueJeu = love.audio.newSource("sons/Projet Jeux Mixer.mp3", "stream")
 
 -- Map--
 Game.Map = {}
@@ -44,17 +44,18 @@ Game.Hero = require("Hero")
 listSprites = {}
 listTirs = {}
 
-function CreeTir (pType, pNomImage, pX, pY, vitesseX, vitesseY)
+function CreeTir (pType, pNomImage, pX, pY, pvitesseX, pvitesseY)
+  --Cree les tirs
   Tir = {}
   Tir.type = pType
   local Tir = CreeSprite(pNomImage, pX, pY)
-  Tir.vx = VitesseX
-  Tir.vy = VitesseY
+  Tir.vx = pvitesseX
+  Tir.vy = pvitesseY
   table.insert(listTirs, Tir)
   
 end
 function CreeSprite(pNomImage, pX, pY)
-
+-- Cree les images
   sprite = {}
   sprite.x = pX
   sprite.y = pY
@@ -105,20 +106,14 @@ function love.mousepressed(x, y, button)
 end
 function Game.Update(dt)
 
-  local n
-  local tirAngle
-  for n=#listTirs,1, -1 do
-      TirAngle = math.angle(Game.Hero.x, Game.Hero.y, mX, mY)
-      local mX = 10 * math.cos(TirAngle)
-      local mY = 10 * math.sin(TirAngle)
-      local Tir = listTirs[n]
-      Tir.x = Tir.x + mX
-      Tir.y = Tir.y + mY
-
- end
-  
   Game.Hero.Update(dt)
-
+  -- Genere le deplacement du Tir
+  local n
+  for n=#listTirs,1, -1 do
+    local Tir = listTirs[n]
+    Tir.x = Tir.x + Tir.vx
+    Tir.y = Tir.y + Tir.vy
+  end
 musiqueJeu:play()
 end
 
